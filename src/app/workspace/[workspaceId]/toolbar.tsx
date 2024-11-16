@@ -42,7 +42,7 @@ export const Toolbar = () => {
 
 return (
     <nav className="bg-neutral-900  flex items-center justify-between h-10 p-1.5">
-      <div className="text-white font-bold ml-2">LOGO </div>
+      <div className="text-white font-bold ml-2">QuickChat </div>
       {/* ADD LOGO */}
       <div className="flex-1 bg-black/90" />
       <div className="  min-w-[280px] max-[642px] grow-[2] shrink">
