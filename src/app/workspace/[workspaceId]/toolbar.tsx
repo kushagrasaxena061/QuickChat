@@ -2,6 +2,7 @@
 
 import { Hint } from "@/components/hint";
 import { Button } from "@/components/ui/button";
+import Image from "next/image"
 import {
   CommandDialog,
   CommandEmpty,
@@ -42,7 +43,9 @@ export const Toolbar = () => {
 
 return (
     <nav className="bg-neutral-900  flex items-center justify-between h-10 p-1.5">
-      <div className="text-white font-bold ml-2">QuickChat </div>
+      <div className="text-white font-bold ml-2">
+          <Image src={'/Quickchat.png'} alt="Logo" width={120} height={120} />
+         </div>
       {/* ADD LOGO */}
       <div className="flex-1 bg-black/90" />
       <div className="  min-w-[280px] max-[642px] grow-[2] shrink">
