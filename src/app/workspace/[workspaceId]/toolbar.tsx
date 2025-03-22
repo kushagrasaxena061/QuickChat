@@ -2,7 +2,7 @@
 
 import { Hint } from "@/components/hint";
 import { Button } from "@/components/ui/button";
-import Image from "next/image"
+import Image from "next/image";
 import {
   CommandDialog,
   CommandEmpty,
@@ -41,31 +41,37 @@ export const Toolbar = () => {
     router.push(`/workspace/${workspaceId}/member/${memberId}`);
   };
 
-return (
+  return (
     <nav className="bg-neutral-900  flex items-center justify-between h-10 p-1.5">
       <div className="text-white font-bold ml-2">
-          <Image src={'/Quickchat.png'} alt="Logo" width={120} height={120} />
-         </div>
-      {/* ADD LOGO */}
+        <Image src={"/Quickchat.png"} alt="Logo" width={120} height={120} />
+      </div>
       <div className="flex-1 bg-black/90" />
       <div className="  min-w-[280px] max-[642px] grow-[2] shrink">
         <Button
           onClick={() => setOpen(true)}
           size="sm"
-          className="bg-neutral-800 hover:bg-neutral-950 w-full justify-start h-7 px-2">
+          className="bg-neutral-800 hover:bg-neutral-950 w-full justify-start h-7 px-2"
+        >
           <Search className="bg-black  size-4 text-white mr-2" />
           <span className="text-white text-xs">Search {data?.name}</span>
         </Button>
 
         <CommandDialog open={open} onOpenChange={setOpen}>
-          <CommandInput className="bg-neutral-900" placeholder="Type a command or search..." />
+          <CommandInput
+            className="bg-neutral-900"
+            placeholder="Type a command or search..."
+          />
           <CommandList className="bg-[#171717] ">
-            <CommandEmpty className="text-white">No results found.</CommandEmpty>
+            <CommandEmpty className="text-white">
+              No results found.
+            </CommandEmpty>
             <CommandGroup className="text-white" heading="Channels">
               {channels?.map((channel) => (
                 <CommandItem
                   key={channel._id}
-                  onSelect={() => onChannelClick(channel._id)}>
+                  onSelect={() => onChannelClick(channel._id)}
+                >
                   {channel.name}
                 </CommandItem>
               ))}
@@ -75,7 +81,8 @@ return (
               {members?.map((member) => (
                 <CommandItem
                   key={member._id}
-                  onSelect={() => onMemberClick(member._id)}>
+                  onSelect={() => onMemberClick(member._id)}
+                >
                   {member.user.name}
                 </CommandItem>
               ))}
@@ -86,12 +93,10 @@ return (
       <div className="ml-auto flex-1 flex items-center justify-end">
         <Button variant="transparent" size="iconSm">
           <Hint label="Help" side="left" align="center">
-          <Info className="size-5 text-white" />
+            <Info className="size-5 text-white" />
           </Hint>
         </Button>
       </div>
     </nav>
   );
 };
-
-    
